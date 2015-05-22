@@ -1,2 +1,2 @@
-# script-backup-web-mysql-upload-dropbox
-script-backup-web-mysql-upload-dropbox
+#Leia
+Script de backup web e mysql faz upload para o Dropbox
