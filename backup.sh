@@ -19,15 +19,15 @@ for LINE in `cat $backup_senhas_file`; do
     db_senhas=${array[4]}
     db_sql="${db_nome}.${db_tipo}.sql"
 
-    /bin/tar -cf $backup_dir/$app_nome.tar $app_dir
-    /bin/rm -rf $backup_dir/$app_nome.tar.bz2
-    /usr/bin/bzip2 $backup_dir/$app_nome.tar
+    tar -cf $backup_dir/$app_nome.tar $app_dir
+    rm -rf $backup_dir/$app_nome.tar.bz2
+    bin/bzip2 $backup_dir/$app_nome.tar
 
     if [[ ! -z "$db_tipo" ]] && [[ ! -z "$db_usuario" ]] && [[ ! -z "$db_senhas" ]]; then
         if [[ $db_tipo == "M" ]];then
-            /usr/bin/mysqldump -u$db_usuario -p$db_senhas $db_nome > $backup_dir/$db_sql
+            mysqldump -u$db_usuario -p$db_senhas $db_nome > $backup_dir/$db_sql
         elif [[ $db_tipo == "P" ]];then
-            PGPASSWORD=$db_senhas pg_dump -U $db_usuario -f $backup_dir/$db_sql $db_nome
+            pgpassword=$db_senhas pg_dump -U $db_usuario -f $backup_dir/$db_sql $db_nome
         else
             continue
         fi
