@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Backup server digitalocean dropbox
+# Backup apps e mysql DBs digitalocean dropbox
 webapps_dir=/var/www
 backup_dir=/var/backup
 backup_senhas=/var/scripts/senha/.backup_senhas
