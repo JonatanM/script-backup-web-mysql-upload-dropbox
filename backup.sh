@@ -3,12 +3,12 @@
 # Backup apps e mysql DBs digitalocean dropbox
 webapps_dir=/var/www
 backup_dir=/var/backup
-backup_senhas=/var/scripts/senha/.backup_senhas
+backup_senhas_file=/var/scripts/senha/.backup_senhas
 
 old_ifs="$ifs"
 ifs=$'\n'
 
-for LINE in `cat $backup_senhas`; do
+for LINE in `cat $backup_senhas_file`; do
     ifs=' '
     array=($LINE)
     app_nome=${array[0]}
