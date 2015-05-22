@@ -31,8 +31,8 @@ for LINE in `cat $backup_senhas_file`; do
         else
             continue
         fi
-        /bin/rm -rf $backup_dir/$db_sql.bz2
-        /usr/bin/bzip2 $backup_dir/$db_sql
+        rm -rf $backup_dir/$db_sql.bz2
+        bin/bzip2 $backup_dir/$db_sql
     fi
 done
 
